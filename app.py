@@ -4,8 +4,14 @@ app = Flask(__name__)
 app.secret_key = 'Bc9on)Dhb308rj98HER87g67rN*&^F767h^&*#HH(F3b987vbf9H#'
 
 @app.route('/',methods=['GET','POST'])
+@app.route('/index',methods=['GET','POST'])
 def index():
-	return render_template('index.html',name='James Houghton')
+	return render_template('index.html')
+@app.route('/login',methods=['GET','POST'])
+def login():
+	username = None
+	password = None
+	return render_template('login.html',username=username,password=password)
 @app.route('/static/<path:path>')
 def send_static():
 	return send_from_directory('static',path) #needed for some files like FA
