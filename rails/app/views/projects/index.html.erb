@@ -1,0 +1,10 @@
+<% @projects.each do |p| %>
+    <div class="project">
+        <p class="lead">
+            <%= p.name %>
+        </p>
+        <%= link_to 'Show', project_path(p), {:class => "btn btn-primary"} %>
+        <br>
+    </div>
+<% end %>
+<%= link_to "New project", new_project_path, {:class => "btn btn-primary"} %>

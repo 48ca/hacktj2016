@@ -1,0 +1,22 @@
+<%= form_for :project, url: projects_path do |f| %>
+    <% if @project %>
+        <span class="error_msgs">
+            <ul class="alert alert-danger">
+              <% for message_error in @project.errors.full_messages %>
+                <li style="margin-left:20px">
+                  <%= message_error %>
+                </li>
+              <% end %>
+            </ul>
+        </span>
+    <% end %>
+    <p>
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.submit 'Create Project', :class => "btn btn-primary" %>
+    </p>
+<% end %>
+<%= link_to 'Back to index', projects_path, {:class => "btn btn-primary"} %>

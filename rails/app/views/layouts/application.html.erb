@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HackTJ 2016</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/header' %>
+    <div class="container" style="margin-top:10px;margin-bottom:10px">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <% if Rails.env.development? %>
+      <hr>
+      <div class="container">
+        <%= debug(params) %>
+      </div>
+    <% end %>
+</body>
+</html>
