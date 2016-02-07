@@ -42,7 +42,8 @@ def init_request():
 @app.route('/',methods=['GET','POST'])
 @app.route('/index',methods=['GET','POST'])
 def index():
-	return render_template('index.html')
+	return redirect('/home')
+	# return render_template('index.html')
 
 @app.route('/register',methods=['GET','POST'])
 def register():
@@ -93,7 +94,7 @@ def login():
 
 
 @app.route('/home')
-@login_required
+# @login_required
 def home():
 	return render_template('home.html')
 
