@@ -98,6 +98,10 @@ def login():
 def home():
 	return render_template('home.html')
 
+@app.route('/upload')
+def upload()
+	return render_template('upload.html')
+
 @app.route('/static/<path:path>')
 def send_static():
 	return send_from_directory('static',path) #needed for some files like FA
